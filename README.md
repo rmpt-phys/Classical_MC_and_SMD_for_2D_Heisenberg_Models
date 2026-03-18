@@ -72,18 +72,15 @@ bors of each lattice site;
 
 Heisenberg (or Ising) Hamiltonian with multiple exchange couplings and an external magnetic field on a two-dimensional lattice system:
 
-$H = J_1 \sum_{\langle i,j \rangle} \vec{S}_i \cdot \vec{S}_j + J_2 \sum_{\langle\langle i,j \rangle\rangle} \vec{S}_i \cdot \vec{S}_j$
+$H = H_1 + H_2 + H_f - h \sum_i S_i^z$
 
-$H = J_1 \sum_{\langle i,j \rangle} \vec{S}_i \cdot \vec{S}_j + J_2 \sum_{\langle\langle i,j \rangle\rangle} \vec{S}_i \cdot \vec{S}_j + J^{\,\prime} \sum_{\langle\langle\langle i,j \rangle\rangle\rangle} \vec{S}_i \cdot \mathbf{S}_j - h \sum_i S_i^z$
+- $H_1 = J_1 \sum_{\langle i,j \rangle} \vec{S}_i \cdot \vec{S}_j\text{ : nearest neighbors (NN);}$
+- $H_2 = J_2 \sum_{\langle\langle i,j \rangle\rangle} \vec{S}_i \cdot \vec{S}_j\text{ : next-nearest neighbors (NNN);}$
+- $H_f = J_f \sum_{\langle\langle\langle i,j \rangle\rangle\rangle} \vec{S}_i \cdot \mathbf{S}_j\text{ : further neighbors (3rd for crystals, 5th for QCs);}$
 
-- Heisenberg: $\vec{S}_i = (S_i^{\,x}, S_i^{\,y}, S_i^{\,z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
+Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i$, where:
+
+- Heisenberg: $\vec{S}_i = (S_i^{x}, S_i^{y}, S_i^{z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
 - Ising: $S_i = S_i^z = \pm 1$, with $S_i \in \mathbb{Z}_2$;
 
-- $\langle i,j \rangle$ : nearest neighbors (NN);
-- $\langle\langle i,j \rangle\rangle$ : next-nearest neighbors (NNN);
-- $\langle\langle\langle i,j \rangle\rangle\rangle$ : further neighbors (3rd for crystals, 5th for QC);
-
-- $J_1$, $J_2$, $J^{\prime}$ : exchange couplings;
-- $h$ : external magnetic field along the $z$-direction;
-
-- $J^{\prime} = J_3$ (crystalline case) or $J_5$ (quasicrystal case)
+In the Hamiltonian above, $J_1$, $J_2$, $J_f$ are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
