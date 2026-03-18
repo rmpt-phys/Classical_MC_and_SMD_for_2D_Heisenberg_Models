@@ -81,6 +81,6 @@ $H = H_1 + H_2 + H_f - h \sum_i S_i^z$
 Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i$, where:
 
 - Heisenberg: $\vec{S}_i = (S_i^{x}, S_i^{y}, S_i^{z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
-- Ising: $S_i = S_i^z = \pm 1$, with $S_i \in \mathbb{Z}_2$;
+- Ising: $S_i = S_i^z = \pm 1$;
 
 In the Hamiltonian above, $J_1$, $J_2$, $J_f$ are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
