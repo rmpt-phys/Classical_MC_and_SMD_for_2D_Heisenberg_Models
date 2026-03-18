@@ -2,43 +2,19 @@
 
 ## A research level C++ code with OpenMPI and OpenCV features
 
-This code was developed as part of a postdoctoral research project focused
-on spin excitations in disordered spin systems. The current implementation
-performs Monte Carlo (MC) simulations with parallel tempering and semiclas-
-sical molecular dynamics (SMD) for J1–J2 Heisenberg and Ising models on
-two-dimensional lattice systems;
+This code was developed as part of a postdoctoral research project focused on spin excitations in disordered spin systems. The current implementation performs Monte Carlo (MC) simulations with parallel tempering and semiclassical molecular dynamics (SMD) for J1–J2 Heisenberg and Ising models on two-dimensional lattice systems;
 
-Available periodic geometries include square, triangular, Lieb, hexagonal,
-and Kagome lattices. Other geometries must be configured manually within
-the code or loaded at runtime, as in the case of the Ammann–Beenker qua-
-sicrystal (QC) approximants provided (see the directory QCrystal_Data);
+Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the Ammann–Beenker quasicrystal (QC) approximants provided (see the directory QCrystal_Data);
 
-For periodic systems, a J3 exchange coupling is implemented through the pa-
-rameter JX. For the aforementioned QC approximants, this parameter instead
-corresponds to a J5 exchange coupling. An external (z-axis) magnetic field
-can be included by setting a finite value for the corresponding parameter;
+For periodic systems, a J3 exchange coupling is implemented through the parameter JX. For the aforementioned QC approximants, this parameter instead corresponds to a J5 exchange coupling. An external (z-axis) magnetic field can be included by setting a finite value for the corresponding parameter;
 
-Interaction anisotropy can be introduced by setting the Sz–Sz coupling fac-
-tors to realize an XXZ model. A system with disorder due to lattice impuri-
-ties can be obtained by setting the disorder ratio (or fraction) parameter
-in one of the configuration files (if set to 0, the system is clean);
+Interaction anisotropy can be introduced by setting the Sz–Sz coupling factors to realize an XXZ model. A system with disorder due to lattice impurities can be obtained by setting the disorder ratio (or fraction) parameter in one of the configuration files (if set to 0, the system is clean);
 
-For SMD simulations, MC–generated spin configurations (samples) recorded at
-temperatures below a certain threshold (defined within the code) during the
-measurement stage are required. A specific input configuration file then
-defines the target sample file;
+For SMD simulations, MC–generated spin configurations (samples) recorded at temperatures below a certain threshold (defined within the code) during the measurement stage are required. A specific input configuration file then defines the target sample file;
 
-The main output of the SMD simulations is the averaged dynamical structure
-factor (SF). This quantity is recorded for several frequency slices & wave
-vectors within the first Brillouin zone, as well as along a predefined path
-for varying frequencies;
+The main output of the SMD simulations is the averaged dynamical structure factor (SF). This quantity is recorded for several frequency slices & wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
-Additionally, MC and SMD codes employ OpenCV functions to produce images of
-sampled spin configurations (including final configurations from both ther-
-malization and measurement stages), as well as videos showing system evolu-
-tion in MC time and real time. A lattice inspection feature is also imple-
-mented using OpenCV, allowing the user to interactively verify the neigh-
-bors of each lattice site;
+Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site;
 
 - Project Title: Excitações de spin em sistemas de spin desordenados
 
@@ -83,4 +59,4 @@ Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment 
 - Heisenberg: $\vec{S}_i = (S_i^{x}, S_i^{y}, S_i^{z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
 - Ising: $S_i = S_i^z = \pm 1$;
 
-In the Hamiltonian above, $J_1$, $J_2$, $J_f$ are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
+In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (JX on code) are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
