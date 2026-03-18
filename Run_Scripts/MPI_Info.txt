@@ -1,0 +1,35 @@
+ ...................................
+ Information about the MPI execution
+
+ Here we use the Intel MPI's syntax:
+ 
+ mpirun -genv I_MPI_PIN_CELL=1:0 --np $NP ./$EXC
+ 
+ mpirun -genv I_MPI_PIN_DOMAIN=core --np $NP ./$EXC
+ 
+ We can achieve simular results with stock MPI:
+
+ mpirun --bind-to core --map-by core --np (...)
+
+ ....................................
+ Interpretation of I_MPI_PIN_CELL=1:0
+
+ 1 (Cell Size): 
+ 
+ Specifies the number of hardware resources (cores) 
+ allocated to each MPI rank. In this case, each 
+ rank gets 1 core;
+
+ 0 (Exclusivity): 
+ 
+ Indicates whether the cores allocated to MPI ranks 
+ should be shared or exclusive:
+
+ 0: Shared    --> Ranks can share cores (X);
+ 1: Exclusive --> Ranks must not share cores (Y);
+
+ X) Multiple ranks may be pinned to the same core if
+    necessary (when NP exceeds the number of cores);
+ 
+ Y) No overlap between ranks is allowed;
+
