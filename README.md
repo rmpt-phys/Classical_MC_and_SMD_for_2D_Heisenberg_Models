@@ -14,7 +14,7 @@ Interaction anisotropy can be introduced by setting the Sz–Sz coupling factors
 
 For SMD simulations, MC–generated spin configurations (samples) recorded at temperatures below a certain threshold (defined within the code) during the measurement stage are required. A specific input configuration file then defines the target sample file;
 
-The main output of the SMD simulations is the averaged dynamical structure factor (SF). This quantity is recorded for several frequency slices & wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
+The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices & wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
 Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site;
 
@@ -65,7 +65,7 @@ Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment 
 
 In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (JX on code) are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
 
-## Semiclassical dynamics & dynamical spin structure factor (DSSF):
+## Semiclassical dynamics and DSSF:
 
 In the semiclassical limit, the spins $\vec{S}(\vec{r} _ i , t) = \vec{S} _ {i}(t)$ evolve in time $t$ according to their precessional dynamics about the local effective field $\vec{h} _ {i}(t)$ (setting $\hbar=1$):
 
