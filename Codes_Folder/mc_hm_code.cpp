@@ -5,17 +5,27 @@
    OrcID: https://orcid.org/0000-0001-7290-3573
    
    Email: rafael.mpt@gmail.com
-   
-   ................
-   About this code: 
 
-   This code was developed as part of a postdoctoral research project focused
-   on spin excitations in disordered spin systems. The current implementation
-   performs Monte Carlo (MC) simulations with parallel tempering and semiclas-
-   sical molecular dynamics (SMD) for J1–J2 Heisenberg and Ising models on 2-
-   dimensional lattice systems. For Heisenberg models, spin updates are carri-
-   ed out using the heat-bath algorithm, while for Ising models, the standard
-   single-spin-flip Metropolis algorithm is employed;
+   ......................
+   About this repository: 
+  
+   This repository contains C++ and Python codes developed during a two-year
+   postdoctoral research project focused on the investigation of spin excita-
+   tions in disordered magnetic systems and the magnetic properties of quasi-
+   crystals (QCs). The implementation combines Monte Carlo (MC) simulations
+   with parallel tempering (parallelization with OpenMPI) and semiclassical
+   molecular dynamics (SMD) to study J1–J2 Heisenberg and Ising models on
+   two-dimensional lattices;
+
+   For Heisenberg models, spin updates are carried out using the heat-bath
+   algorithm, while for Ising models, the standard single-spin-flip Metropo-
+   lis algorithm is employed. In the SMD framework , spin dynamics are nume-
+   rically obtained by integrating the Heisenberg equations of motion in the
+   classical limit , where they reduce to the LLG equations describing spin
+   precession (without damping) in an effective magnetic field. The fourth-
+   order Runge–Kutta (RK4) method is employed and supplemented by an energy-
+   correction scheme, ensuring stable numerical evolution (see the published
+   articles for more details and references);
 
    Available periodic geometries include square, triangular, Lieb, hexagonal,
    and Kagome lattices. Other geometries must be configured manually within
@@ -47,7 +57,7 @@
    malization and measurement stages), as well as videos showing system evolu-
    tion in MC time and real time. A lattice inspection feature is also imple-
    mented using OpenCV, allowing the user to interactively verify the neigh-
-   bors of each lattice site;
+   bors of each lattice site;   
    
    Project Title: Excitações de spin em sistemas de spin desordenados
 
