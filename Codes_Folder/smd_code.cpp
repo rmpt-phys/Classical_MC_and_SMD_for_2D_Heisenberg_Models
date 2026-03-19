@@ -59,7 +59,7 @@
    mented using OpenCV, allowing the user to interactively verify the neigh-
    bors of each lattice site; 
 
-   See the 'README.md' for details about the codes, models and methods;
+   Read the file 'README.md' for details about the codes, models and methods;
 
    -----------------------------------------------------------------------------
    
