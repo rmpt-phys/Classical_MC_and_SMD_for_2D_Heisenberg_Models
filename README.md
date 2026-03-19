@@ -2,7 +2,7 @@
 
 ## A research level C++ code with OpenMPI and OpenCV features
 
-This code was developed as part of a postdoctoral research project focused on spin excitations in disordered spin systems. The current implementation performs Monte Carlo (MC) simulations with parallel tempering and semiclassical molecular dynamics (SMD) for J1–J2 Heisenberg and Ising models on two-dimensional lattice systems;
+This code was developed as part of a postdoctoral research project focused on spin excitations in disordered spin systems. The current implementation performs Monte Carlo (MC) simulations with parallel tempering and semiclassical molecular dynamics (SMD) for J1–J2 Heisenberg and Ising models on two-dimensional lattice systems. For Heisenberg models, spin updates are carried out using the heat-bath algorithm, while for Ising models, the standard single-spin-flip Metropolis algorithm is employed;
 
 Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the Ammann–Beenker quasicrystal (QC) approximants provided (see the directory QCrystal_Data);
 
