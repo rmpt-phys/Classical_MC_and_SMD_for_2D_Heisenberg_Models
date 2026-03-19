@@ -21,9 +21,9 @@ A step-by-step guide for building and installing OpenCV from source on Ubuntu, i
 
 ```bash
 sudo apt install build-essential nasm yasm
-sudo apt-get install libx264-dev          # H.264 encoder
-sudo apt-get install libx265-dev libnuma-dev  # H.265/HEVC encoder
-sudo apt-get install libvpx-dev           # VP8/VP9 encoder/decoder
+sudo apt-get install libx264-dev             # H.264 encoder
+sudo apt-get install libx265-dev libnuma-dev # H.265/HEVC encoder
+sudo apt-get install libvpx-dev              # VP8/VP9 encoder/decoder
 ```
 
 ### 1.2 Configure & Build
@@ -57,16 +57,21 @@ Fix it by registering the library path:
 
 ```bash
 # 1. Find where the library was installed
+
 sudo find / -name "libavdevice.so.57"
+
 # Example result: /usr/local/lib
 
 # 2. Add the path to the dynamic linker config
+
 echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/ffmpeg.conf
 
 # 3. Refresh the linker cache
+
 sudo ldconfig
 
 # 4. Verify FFmpeg works
+
 ffmpeg --version
 ```
 
@@ -113,9 +118,9 @@ make && sudo make install
 Choose **one** GUI backend (GTK+ is recommended for headless/server setups):
 
 ```bash
-sudo apt-get install libgtk-3-dev    # GTK+ (recommended)
+sudo apt-get install libgtk-3-dev # GTK+ (recommended)
 # OR
-sudo apt-get install qtbase5-dev     # Qt5
+sudo apt-get install qtbase5-dev  # Qt5
 ```
 
 ### 3.2 Prepare the Build Directory
@@ -139,8 +144,11 @@ If using Intel MKL, edit `cmake/OpenCVFindMKL.cmake`:
 
 ```cmake
 # Change this line:
+
 list(APPEND mkl_root_paths "/opt/intel/mkl/")
+
 # To:
+
 list(APPEND mkl_root_paths "/opt/intel/oneapi/mkl/")
 ```
 
@@ -150,7 +158,9 @@ Make sure required libraries are visible at build time:
 
 ```bash
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu
+
 # Add any other needed paths, e.g. Intel OneAPI:
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/intel/oneapi/...
 ```
 
@@ -225,9 +235,11 @@ Then re-run the CMake command.
 
 ```bash
 # Build (logs saved to build.log for easy review)
+
 make -j$(nproc) 2>&1 | tee build.log
 
 # Install
+
 sudo make install
 ```
 
@@ -249,13 +261,17 @@ If your compiled binary fails with a missing `libopencv_*.so` error:
 
 ```bash
 # 1. Find the library
+
 sudo find / -name "libopencv_core.so*"
+
 # Example result: /usr/local/lib/libopencv_core.so.4.x
 
 # 2. Register the path
+
 echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/opencv.conf
 
 # 3. Refresh the linker cache
+
 sudo ldconfig -v
 
 # 4. Re-run your binary
@@ -274,8 +290,6 @@ sudo ldconfig -v
 
 ---
 
-## References
+## FFmpeg compilation reference
 
 - [FFmpeg Compilation Guide (Ubuntu)](https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu)
-- [OpenCV Fix: Library Not Found](https://github.com/cggos/DIPDemoQt/issues/1)
-- [ldconfig Command Reference](https://www.thegeekdiary.com/how-to-use-ldconfig-command-in-linux/)
