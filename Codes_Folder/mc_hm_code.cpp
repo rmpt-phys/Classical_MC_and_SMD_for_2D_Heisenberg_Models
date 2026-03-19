@@ -58,6 +58,10 @@
    tion in MC time and real time. A lattice inspection feature is also imple-
    mented using OpenCV, allowing the user to interactively verify the neigh-
    bors of each lattice site;   
+
+   Read the file 'README.md' for details about the codes, models and methods;
+
+   -----------------------------------------------------------------------------   
    
    Project Title: Excitações de spin em sistemas de spin desordenados
 
