@@ -16,7 +16,9 @@ For SMD simulations, MC–generated spin configurations (samples) recorded at te
 
 The main output of the SMD simulations is the averaged dynamical structure factor (SF). This quantity is recorded for several frequency slices & wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
-Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site; 
+Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site;
+
+Follow the instructions in *Instructions.txt* and the Python script *Set_Params.py* for a detailed guide on setting simulation parameters, configuring the algorithms, compiling and running the code, and analyzing the outputs;
 
 - Project Title: Excitações de spin em sistemas de spin desordenados
 
@@ -56,7 +58,7 @@ $H = H_1 + H_2 + H_f - h \sum_i S_i^{\\,z}$;
 - $H_2 = J_2 \sum_{\langle\langle i,j \rangle\rangle} \vec{S}_i \cdot \vec{S}_j\text{ : next-nearest neighbors (NNN);}$
 - $H_f = J_f \sum_{\langle\langle\langle i,j \rangle\rangle\rangle} \vec{S}_i \cdot \mathbf{S}_j\text{ : further neighbors (3rd for crystals, 5th for QCs);}$
 
-Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ –with $N$ being the total number of sites – where:
+Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), where:
 
 - Heisenberg: $\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
 - Ising: $S_i = S_i^{\\,z} = \pm 1$;
@@ -67,7 +69,7 @@ In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (JX on code) are exchange coupling
 
 In the semiclassical limit, the spins $\vec{S}(\vec{r} _ i , t) = \vec{S} _ {i}(t)$ evolve in time $t$ according to their precessional dynamics about the local effective field $\vec{h} _ {i}(t)$ (setting $\hbar=1$):
 
-$\dfrac{d S_j^{\\,\mu}(t)}{dt} = i \\, [H,S_j^{\\,\mu}(t)] \rightarrow \dfrac{d \vec{S} _ {j}(t)}{dt} = \vec{h} _ {j}(t) \times \vec{S} _ {j}(t)$;
+$\dfrac{d S_j^{\\,\mu}(t)}{dt} = i \\, [H,S_j^{\\,\mu}(t)] \\,\rightarrow\\, \dfrac{d \vec{S} _ {j}(t)}{dt} = \vec{h} _ {j}(t) \times \vec{S} _ {j}(t)$;
 
 $h_i^{\mu}(t) = \sum_j J_{ij}^{\\,\mu}\\, S_j^{\\,\mu}(t)$;
 
