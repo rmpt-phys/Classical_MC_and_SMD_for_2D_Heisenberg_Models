@@ -67,12 +67,12 @@ In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (JX on code) are exchange coupling
 
 In the semiclassical limit, the spins $\vec{S}(\vec{r} _ i , t) = \vec{S} _ {i}(t)$ evolve in time $t$ according to their precessional dynamics about the local effective field $\vec{h} _ {i}(t)$ (setting $\hbar=1$):
 
-$\dfrac{d S_j^{\\,\mu}(t)}{dt} = i [H,S_j^{\\,\mu}(t)] \rightarrow \dfrac{d \vec{S} _ {j}(t)}{dt} = \vec{h} _ {j}(t) \times \vec{S} _ {j}(t)$;
+$\dfrac{d S_j^{\\,\mu}(t)}{dt} = i \\, [H,S_j^{\\,\mu}(t)] \rightarrow \dfrac{d \vec{S} _ {j}(t)}{dt} = \vec{h} _ {j}(t) \times \vec{S} _ {j}(t)$;
 
 $h_i^{\mu}(t) = \sum_j J_{ij}^{\\,\mu}\\, S_j^{\\,\mu}(t)$;
 
 The ensemble-averaged, energy- and momentum-resolved dynamical spin correlation function is given by the classical DSSF:
 
-$S^{\\,\mu\nu}(\vec{q}, \omega) = \dfrac{1}{2\pi N} \sum_{\\,ij} \int_{-\infty}^{\infty} dt \\, \langle S_i^{\\,\mu}(t) S_j^{\\,\nu}(0) \rangle \\, e^{\\,i\\,(\omega t - \vec{q} \cdot \vec{R} _ {\\,ij})}$
+$S^{\\,\mu\nu}(\vec{q}, \omega) = \dfrac{1}{2\pi N} \sum_{\\,ij} \int_{-\infty}^{\infty} dt \\, \langle S_i^{\\,\mu}(t) S_j^{\\,\nu}(0) \rangle \\, e^{\\,i(\\,\omega t - \vec{q} \cdot \vec{R} _ {\\,ij}\\,)}$
 
 Here, $\vec{q}$ is a wave vector in reciprocal space, $\mu$ and $\nu$ denote spin components, and $\vec{R} _ {\\,ij} = \vec{r} _ i - \vec{r} _ j$.
