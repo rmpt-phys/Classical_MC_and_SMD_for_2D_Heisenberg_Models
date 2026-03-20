@@ -1,20 +1,16 @@
-# MC and SMD for 2D J1–J2 Heisenberg Models
+# MC and SMD for 2D $J_1-J_2$ Heisenberg Models
 
 ### High-performance C++ implementation with OpenMPI and OpenCV
 
-This repository contains C++ and Python codes developed during a two-year postdoctoral research project focused on the investigation of spin excitations in disordered magnetic systems and the magnetic properties of quasicrystals (QCs). The implementation combines Monte Carlo (MC) simulations with parallel tempering (parallelization with OpenMPI) and semiclassical molecular dynamics (SMD) to study J1–J2 Heisenberg and Ising models on two-dimensional lattices;
+This repository contains C++ and Python codes developed during a two-year postdoctoral research project focused on the investigation of spin excitations in disordered magnetic systems and the magnetic properties of quasicrystals (QCs). The implementation combines Monte Carlo (MC) simulations with parallel tempering (parallelization with OpenMPI) and semiclassical molecular dynamics (SMD) to study $J_1-J_2$ Heisenberg and Ising models on two-dimensional lattices;
 
-For Heisenberg models, spin updates are carried out using the heat-bath algorithm combined with a microcanonical (overrelaxation) update, while for Ising models, the standard single-spin-flip Metropolis algorithm is employed. In the SMD framework, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. The fourth-order Runge–Kutta (RK4) method is employed and supplemented by an energy-correction scheme, ensuring stable numerical evolution (see the published articles for more details and references);
+For Heisenberg models, spin updates are carried out using the heat-bath algorithm combined with a microcanonical (overrelaxation) update, while for Ising models, the standard single-spin-flip Metropolis algorithm is employed. In the SMD framework, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. The fourth-order Runge-Kutta (RK4) method is employed and supplemented by an energy-correction scheme, ensuring stable numerical evolution (see the published articles for more details and references);
 
-Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the Ammann–Beenker QC approximants provided (see the directory *QCrystal_Data*);
+Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the Ammann-Beenker QC approximants provided (see the directory *QCrystal_Data*);
 
-For periodic systems, a J3 exchange coupling is implemented through the parameter JX. For the aforementioned QC approximants, this parameter instead corresponds to a J5 exchange coupling. An external (z-axis) magnetic field can be included by setting a finite value for the corresponding parameter;
+For periodic systems, a $J_3$ exchange coupling is implemented through a specific parameter in the code. For the aforementioned QC approximants, this parameter instead corresponds to a $J_5$ exchange coupling. An external magnetic field applied along the $z$ axis can also be included. Exchange anisotropy is introduced by modifying the $S^{\\,z}-S^{\\,z}$ coupling factors, yielding an XXZ-type model. A system with disorder due to lattice impurities can be obtained by setting the disorder ratio/fraction parameter in one of the configuration files;
 
-Interaction anisotropy can be introduced by setting the Sz–Sz coupling factors to realize an XXZ model. A system with disorder due to lattice impurities can be obtained by setting the disorder ratio (or fraction) parameter in one of the configuration files (if set to 0, the system is clean);
-
-For SMD simulations, MC–generated spin configurations (samples) recorded at temperatures below a certain threshold (defined within the code) during the measurement stage are required. A specific input configuration file then defines the target sample file;
-
-The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices and wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
+For SMD simulations, MC-generated spin configurations (samples) recorded at temperatures below a certain threshold (defined within the code) during the measurement stage are required. A specific input setting then defines the target binary file with the samples. The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices and wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
 Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site;
 
@@ -50,7 +46,16 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
 
 ## About the model:
 
-Heisenberg (and its Ising limit) Hamiltonian with multiple exchange couplings and an external magnetic field:
+Heisenberg Hamiltonian with multiple exchange couplings, XXZ anisotropy, and an external magnetic field:
+
+$H = \dfrac{1}{2} \sum_{\\,i,j,\mu} J_{ij}^{\\,\mu}\\, S_i^{\\,\mu} S_j^{\\,\mu} - h \sum_{\\,i} S_i^{\\,z}\\,$;
+
+- $\text{Heisenberg model: }\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})\text{ with }|\vec{S}_i| = 1\text{ (unit vector on the sphere)}\\,$;
+- $\text{Ising model limit: }\vec{S}_i = S_i^{\\,z}\hat{z}\text{ with }S_i^{\\,z}= \pm 1\\,$;
+
+Here, $\mu = x,y,z$ denotes spin components, $\vec{S} _ i$ is a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), $J_{ij}^{\\,x,y} = J_{ij}$ and $J_{ij}^{\\,z} = \lambda\\, J_{ij}$ with $\lambda$ controlling the exchange anisotropy, and $h$ is the external magnetic field along the $z$ direction;
+
+For isotropic exchange couplings ($\lambda=1$), the Hamiltonian implemented in the code can be expressed as:
 
 $H = H_1 + H_2 + H_f - h \sum_i S_i^{\\,z}\\,$;
 
@@ -58,16 +63,7 @@ $H = H_1 + H_2 + H_f - h \sum_i S_i^{\\,z}\\,$;
 - $H_2 = J_2 \sum_{\langle\langle i,j \rangle\rangle} \vec{S}_i \cdot \vec{S}_j\text{ : next-nearest neighbors (NNN);}$
 - $H_f = J_f \sum_{\langle\langle\langle i,j \rangle\rangle\rangle} \vec{S}_i \cdot \mathbf{S}_j\text{ : further neighbors (3rd for crystals, 5th for QCs);}$
 
-Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), where:
-
-- $\text{Heisenberg model: }\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})\text{ with }|\vec{S}_i| = 1\text{ (unit vector on the sphere)}\\,$;
-- $\text{Ising model: }\vec{S}_i = S_i^{\\,z}\hat{z}\text{ with }S_i^{\\,z}= \pm 1\\,$;
-
-In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (denoted as `JX` in the code) are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (QC case), and $h$ is the external magnetic field along the $z$ direction;
-
-In the absence of an external magnetic field ($h = 0$), the anisotropy of the Hamiltonian is controlled by the parameter $\lambda$ (below, $\mu = x,y,z$ denote spin components indices):
-
-$H = \dfrac{1}{2} \sum_{\\,i,j,\mu} J_{ij}^{\\,\mu}\\, S_i^{\\,\mu} S_j^{\\,\mu}\text{, with }J_{ij}^{\\,x,y} = J_{ij}\text{ and }J_{ij}^{\\,z} = \lambda\\, J_{ij}\\,$;
+Here, $J_1$, $J_2$, $J_f$ (denoted as `JX` in the code) are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (QC case);
 
 ## Semiclassical dynamics and DSSF:
 
