@@ -42,7 +42,7 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
    
    **Authors:** Marli R. Cantarino, Rafael M. P. Teixeira, K. R. Pakuszewski, Wagner R. da Silva Neto, Juliana G. de Abrantes, Mirian Garcia-Fernandez, P. G. Pagliuso, C. Adriano, Claude Monney, Thorsten Schmitt, Eric C. Andrade, Fernando A. Garcia
 
-3) Stripe order in quasicrystals (https://doi.org/10.1140/epjb/s10051-025-01040-y)
+2) Stripe order in quasicrystals (https://doi.org/10.1140/epjb/s10051-025-01040-y)
    
    *European Physical Journal B: 98, 188*
    
@@ -50,7 +50,7 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
 
 ## About the model:
 
-Heisenberg (or Ising) Hamiltonian with multiple exchange couplings and an external magnetic field on a two-dimensional lattice system:
+The Heisenberg (or Ising) Hamiltonian with multiple exchange couplings and an external magnetic field on a two-dimensional lattice system:
 
 $H = H_1 + H_2 + H_f - h \sum_i S_i^{\\,z}$;
 
@@ -60,10 +60,14 @@ $H = H_1 + H_2 + H_f - h \sum_i S_i^{\\,z}$;
 
 Here, $\vec{S}_i$ denotes a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), where:
 
-- Heisenberg: $\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
+- Heisenberg: $\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})\\,$, with $\|\vec{S}_i\| = 1$ (unit vector on the sphere);
 - Ising: $S_i = S_i^{\\,z} = \pm 1$;
 
 In the Hamiltonian above, $J_1$, $J_2$, $J_f$ (JX on code) are exchange couplings, with $J_f = J_3$ (crystalline case) or $J_5$ (quasicrystal case), and $h$ is the external magnetic field along the $z$-direction;
+
+In the absence of an external magnetic field ($h = 0$), the anisotropy of the Hamiltonian is controlled by the parameter $\lambda$ (below, $\mu,\nu = x,y,z$ denote spin components indices):
+
+$H = \dfrac{1}{2}\sum_{\\,i,j,\mu} J_{ij}^{\\,\mu}\\, S_i^{\\,\mu} S_j^{\\,\mu}\\,$, with $J_{ij}^{\\,x,y}=J_{ij}$ and $J_{ij}^{\\,z}=\lambda\\, J_{ij}$;
 
 ## Semiclassical dynamics and DSSF:
 
