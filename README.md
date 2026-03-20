@@ -10,11 +10,11 @@ Available periodic geometries include square, triangular, Lieb, hexagonal, and K
 
 For periodic systems, a $J_3$ exchange coupling is implemented through a specific parameter in the code. For the aforementioned QC approximants, this parameter instead corresponds to a $J_5$ exchange coupling; An external magnetic field applied along the $z$ axis can also be included; Exchange anisotropy is introduced by modifying the $S^{\\,z}-S^{\\,z}$ coupling factors, yielding an XXZ-type model; A system with disorder due to lattice impurities can be obtained by setting the disorder ratio/fraction parameter in one of the configuration files;
 
-For SMD simulations, MC-generated spin configurations (samples) are required, these are recorded at temperatures below a certain threshold (defined within the code) during the measurement stage. A specific input setting then defines the target binary file with the samples. The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices and wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
+For SMD simulations, MC-generated spin configurations (samples) are required, these are recorded for temperatures below a certain threshold (defined within the code) during the measurement stage. A specific input setting then defines the target binary file with the samples. The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices and wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
 Additionally, MC and SMD codes employ OpenCV functions to produce images of sampled spin configurations (including final configurations from both thermalization and measurement stages), as well as videos showing system evolution in MC time and real time. A lattice inspection feature is also implemented using OpenCV, allowing the user to interactively verify the neighbors of each lattice site;
 
-Follow the instructions in *Instructions.txt* and the Python script *Set_Params.py* for a detailed guide on setting simulation parameters, configuring the algorithms, compiling and running the code, and analyzing the outputs;
+Follow the instructions in *Instructions.txt* and the Python script *Set_Params.py* for a detailed guide on setting simulation parameters, configuring the algorithms, compiling/running the code, and analyzing the outputs;
 
 - *Project Title:* Excitações de spin em sistemas de spin desordenados
 
