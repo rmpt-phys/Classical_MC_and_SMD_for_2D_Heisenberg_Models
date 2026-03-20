@@ -1,6 +1,6 @@
-# MC and SMD for 2D $J_1-J_2$ Heisenberg Models
+## MC and SMD for 2D $J_1-J_2$ Heisenberg Models: a high-performance C++ implementation with MKL-DFTI, MPI and OpenCV
 
-### High-performance C++ implementation with OpenMPI and OpenCV
+## About this repository:
 
 This repository contains C++ and Python codes developed during a two-year postdoctoral research project focused on the investigation of spin excitations in disordered magnetic systems and the magnetic properties of quasicrystals (QCs). The implementation combines Monte Carlo (MC) simulations with parallel tempering (parallelization with OpenMPI) and semiclassical molecular dynamics (SMD) to study $J_1-J_2$ Heisenberg and Ising models on two-dimensional lattices;
 
@@ -32,7 +32,7 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
 
 ## Reseach outputs:
 
-1) Disorder-induced damping of spin excitations in Cr-doped BaFe2As2 (https://doi.org/10.1103/rkjn-hf7z)
+1) Disorder-induced damping of spin excitations in $\text{Cr}$-doped $\text{BaFe}_{2}\text{As}_2$ (https://doi.org/10.1103/rkjn-hf7z)
    
    *Physical Review Research: 8, L012028*
    
