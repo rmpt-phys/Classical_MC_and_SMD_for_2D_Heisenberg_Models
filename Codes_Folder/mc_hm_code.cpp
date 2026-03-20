@@ -43,7 +43,7 @@
    ter in one of the configuration files;
 
    For SMD simulations, MC-generated spin configurations (samples) are re-
-   quired , these are recorded at temperatures below a certain threshold
+   quired , these are recorded for temperatures below a certain threshold
    (defined within the code) during the measurement stage. A specific in-
    put setting then defines the target binary file with the samples. The
    main output of the SMD simulations is the avg. dynamical spin structu-
@@ -58,10 +58,9 @@
    is also implemented using OpenCV, allowing the user to interactively
    verify the neighbors of each lattice site;
 
-   Follow the instructions in *Instructions.txt* and the Python script
-   Set_Params.py for a detailed guide on setting simulation parameters,
-   configuring the algorithms, compiling and running the code, and
-   analyzing the outputs;  
+   Follow the instructions in the files Instructions.txt & Set_Params.py
+   for a detailed guide on setting simulation parameters , configuring
+   the algorithms, compiling/running the code & analyzing the outputs;
    
    Project Title: Excitações de spin em sistemas de spin desordenados
 
