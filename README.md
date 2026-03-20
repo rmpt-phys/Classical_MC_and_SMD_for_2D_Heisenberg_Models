@@ -53,7 +53,7 @@ $H = \dfrac{1}{2} \sum_{\\,i,j,\mu} J_{ij}^{\\,\mu}\\, S_i^{\\,\mu} S_j^{\\,\mu}
 - $\text{Heisenberg model: }\vec{S}_i = (S_i^{\\,x}, S_i^{\\,y}, S_i^{\\,z})\text{ with }|\vec{S}_i| = 1\text{ (unit vector on the sphere)}\\,$;
 - $\text{Ising model limit: }\vec{S}_i = S_i^{\\,z}\hat{z}\text{ with }S_i^{\\,z}= \pm 1\\,$;
 
-Here, $\mu = x,y,z$ denotes spin components, $\vec{S} _ i$ is a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), $J_{ij}^{\\,x,y} = J_{ij}$ and $J_{ij}^{\\,z} = \lambda\\, J_{ij}$ with $\lambda$ controlling the exchange anisotropy, and $h$ is the external magnetic field along the $z$ direction;
+Here, $\mu = x,y,z$ denotes spin components, $\vec{S} _ i$ is a classical spin representing a local magnetic moment on the site $i=1,2,\dots,N-1,N$ (with $N$ being the total number of sites), $J_{ij}^{\\,\mu}$ are exchange couplings such that $J_{ij}^{\\,x,y} = J_{ij}$ and $J_{ij}^{\\,z} = \lambda\\, J_{ij}$ with $\lambda$ controlling the exchange anisotropy, and $h$ is the external magnetic field along the $z$ direction;
 
 For isotropic exchange couplings ($\lambda=1$), the Hamiltonian implemented in the code can be expressed as:
 
