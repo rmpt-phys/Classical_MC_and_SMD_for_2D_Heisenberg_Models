@@ -7,61 +7,61 @@
    Email: rafael.mpt@gmail.com
 
    ......................
-   About this repository: 
+   About this repository:
   
-   This repository contains C++ and Python codes developed during a two-year
-   postdoctoral research project focused on the investigation of spin excita-
-   tions in disordered magnetic systems and the magnetic properties of quasi-
-   crystals (QCs). The implementation combines Monte Carlo (MC) simulations
-   with parallel tempering (parallelization with OpenMPI) and semiclassical
-   molecular dynamics (SMD) to study J1–J2 Heisenberg and Ising models on
-   two-dimensional lattices;
+   This repository contains C++ and Python codes developed during a 2-year
+   postdoctoral research project focused on the investigation of spin exci-
+   tations in disordered magnetic systems & the magnetic properties of qua-
+   si-crystals (QCs) . The implementation combines Monte Carlo (MC) simula-
+   tions with parallel tempering (parallelization with MPI) and semiclassi-
+   cal molecular dynamics (SMD) to study J1-J2 Heisenberg and Ising models
+   on 2-dimensional lattices;
 
    For Heisenberg models, spin updates are carried out using the heat-bath
-   algorithm, while for Ising models, the standard single-spin-flip Metropo-
-   lis algorithm is employed. In the SMD framework , spin dynamics are nume-
-   rically obtained by integrating the Heisenberg equations of motion in the
-   classical limit , where they reduce to the LLG equations describing spin
-   precession (without damping) in an effective magnetic field. The fourth-
-   order Runge–Kutta (RK4) method is employed and supplemented by an energy-
-   correction scheme, ensuring stable numerical evolution (see the published
+   algorithm combined with a microcanonical (overrelaxation) update, while
+   for Ising models, the standard single-spin-flip Metropolis algorithm is
+   employed. In the SMD framework, spin dynamics are numerically obtained
+   by integrating the Heisenberg equations of motion in the classical li-
+   mit, where they reduce to the LLG equations describing spin precession
+   (without damping) in an effective local magnetic field . The 4th-order
+   Runge-Kutta (RK4) method is employed and supplemented by an energy-cor-
+   rection scheme, ensuring stable numerical evolution (see the published
    articles for more details and references);
 
-   Available periodic geometries include square, triangular, Lieb, hexagonal,
-   and Kagome lattices. Other geometries must be configured manually within
-   the code or loaded at runtime, as in the case of the Ammann–Beenker qua-
-   sicrystal (QC) approximants provided (see the directory QCrystal_Data);
+   Available periodic geometries include square, triangular, Lieb, hexago-
+   nal, and Kagome lattices. Other geometries must be configured manually
+   within the code or loaded at runtime, as in the case of the octagonal
+   Ammann-Beenker QC approximants provided (see the dir. QCrystal_Data);
 
-   For periodic systems, a J3 exchange coupling is implemented through the pa-
-   rameter JX. For the aforementioned QC approximants, this parameter instead
-   corresponds to a J5 exchange coupling. An external (z-axis) magnetic field
-   can be included by setting a finite value for the corresponding parameter;
+   For periodic systems, a J3 exchange coupling is implemented through a
+   specific parameter in the code (JX). For the aforementioned QC appro-
+   ximants, this parameter instead corresponds to a J5 exchange coupling;
+   An external magnetic field applied along the z axis can also be inclu-
+   ded; Exchange anisotropy is introduced by modifying the Sz-Sz coupling
+   factors, yielding an XXZ-type model; A system with disorder due to la-
+   ttice impurities can be obtained by setting the disorder ratio parame-
+   ter in one of the configuration files;
 
-   Interaction anisotropy can be introduced by setting the Sz–Sz coupling fac-
-   tors to realize an XXZ model. A system with disorder due to lattice impuri-
-   ties can be obtained by setting the disorder ratio (or fraction) parameter
-   in one of the configuration files (if set to 0, the system is clean);
+   For SMD simulations, MC-generated spin configurations (samples) are re-
+   quired , these are recorded at temperatures below a certain threshold
+   (defined within the code) during the measurement stage. A specific in-
+   put setting then defines the target binary file with the samples. The
+   main output of the SMD simulations is the avg. dynamical spin structu-
+   re factor. This quantity is recorded for several frequency slices and
+   wave vectors within the first Brillouin zone, as well as along a pre-
+   defined path for varying frequencies;
 
-   For SMD simulations, MC–generated spin configurations (samples) recorded at
-   temperatures below a certain threshold (defined within the code) during the
-   measurement stage are required. A specific input configuration file then
-   defines the target sample file;
+   Additionally, MC and SMD codes employ OpenCV functions to produce ima-
+   ges of sampled spin configurations (including final configs. from both
+   thermalization and measurement stages), as well as videos showing sys-
+   tem evolution in MC time and real time . A lattice inspection feature
+   is also implemented using OpenCV, allowing the user to interactively
+   verify the neighbors of each lattice site;
 
-   The main output of the SMD simulations is the averaged dynamical structure
-   factor (SF). This quantity is recorded for several frequency slices & wave
-   vectors within the first Brillouin zone, as well as along a predefined path
-   for varying frequencies;
-
-   Additionally, MC and SMD codes employ OpenCV functions to produce images of
-   sampled spin configurations (including final configurations from both ther-
-   malization and measurement stages), as well as videos showing system evolu-
-   tion in MC time and real time. A lattice inspection feature is also imple-
-   mented using OpenCV, allowing the user to interactively verify the neigh-
-   bors of each lattice site;   
-
-   Read the file 'README.md' for details about the codes, models and methods;
-
-   -----------------------------------------------------------------------------   
+   Follow the instructions in *Instructions.txt* and the Python script
+   Set_Params.py for a detailed guide on setting simulation parameters,
+   configuring the algorithms, compiling and running the code, and
+   analyzing the outputs;  
    
    Project Title: Excitações de spin em sistemas de spin desordenados
 
