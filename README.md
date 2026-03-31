@@ -2,13 +2,15 @@
 
 ## About this repository:
 
-This repository contains C++ and Python codes developed during a two-year postdoctoral research project focused on the investigation of spin excitations in disordered magnetic systems and the magnetic properties of quasicrystals (QCs). The implementation combines Monte Carlo (MC) simulations with parallel tempering (parallelization with MPI) and semiclassical molecular dynamics (SMD) to study $J_1-J_2$ Heisenberg and Ising models on two-dimensional lattices;
+This repository contains C++ and Python codes developed during a two-year postdoctoral research project focused on the investigation of spin excitations in disordered magnetic systems and the magnetic properties of quasicrystals (QCs). The implementation combines Monte Carlo (MC) simulations with parallel tempering (parallelization with MPI) and semiclassical molecular dynamics (SMD) to study $J_1-J_2$ Heisenberg models on two-dimensional lattices;
 
-For Heisenberg models, spin updates are carried out using the heat-bath algorithm combined with a microcanonical (overrelaxation) update, while for Ising models, the standard single-spin-flip Metropolis algorithm is employed. In the SMD framework, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. The fourth-order Runge-Kutta (RK4) method is employed and supplemented by an energy-correction scheme, ensuring stable numerical evolution (see the published articles for more details and references);
+The MC code supports both Heisenberg and Ising models. For the Heisenberg case, spin updates are performed using a heat-bath algorithm combined with microcanonical (overrelaxation) updates, enhancing sampling efficiency. For the Ising model, updates are carried out via the standard single-spin-flip Metropolis algorithm;
+
+Regarding the SMD implementation, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. Time evolution is computed using a fourth-order Runge-Kutta (RK4) method, supplemented by an energy-correction scheme to ensure numerical stability over long simulations (see the associated publications for further details and references);
 
 Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the octagonal Ammann-Beenker QC approximants provided (see the directory *QCrystal_Data*);
 
-For periodic systems, a $J_3$ exchange coupling is implemented through a specific parameter in the code. For the aforementioned QC approximants, this parameter instead corresponds to a $J_5$ exchange coupling; An external magnetic field applied along the $z$ axis can also be included; Exchange anisotropy is introduced by modifying the $S^{\\,z}-S^{\\,z}$ coupling factors, yielding an XXZ-type model; A system with disorder due to lattice impurities can be obtained by setting the disorder ratio/fraction parameter in one of the configuration files;
+For periodic systems, a $J_3$ exchange coupling is implemented through a specific parameter in the code. For the aforementioned QC approximants, this parameter instead corresponds to a $J_5$ exchange coupling. Moreover, an external magnetic field applied along the $z$ axis can also be included, and exchange anisotropy is introduced by modifying the $S^{\\,z}-S^{\\,z}$ coupling factors, yielding an XXZ-type model. Also, a system with disorder due to lattice impurities can be obtained by setting the disorder ratio/fraction parameter in one of the configuration files;
 
 For SMD simulations, MC-generated spin configurations (samples) are required, these are recorded for temperatures below a certain threshold (defined within the code) during the measurement stage. A specific input setting then defines the target binary file with the samples. The main output of the SMD simulations is the averaged dynamical spin structure factor (DSSF). This quantity is recorded for several frequency slices and wave vectors within the first Brillouin zone, as well as along a predefined path for varying frequencies;
 
@@ -32,13 +34,13 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
 
 ## Reseach outputs:
 
-1) Disorder-induced damping of spin excitations in $\text{Cr}$-doped $\text{BaFe}_{2}\text{As}_2$ (https://doi.org/10.1103/rkjn-hf7z)
+1) **Disorder-induced damping of spin excitations in $\text{Cr}$-doped $\text{BaFe}_{2}\text{As}_2$** (https://doi.org/10.1103/rkjn-hf7z)
    
    *Physical Review Research: 8, L012028*
    
    **Authors:** Marli R. Cantarino, Rafael M. P. Teixeira, K. R. Pakuszewski, Wagner R. da Silva Neto, Juliana G. de Abrantes, Mirian Garcia-Fernandez, P. G. Pagliuso, C. Adriano, Claude Monney, Thorsten Schmitt, Eric C. Andrade, Fernando A. Garcia
 
-2) Stripe order in quasicrystals (https://doi.org/10.1140/epjb/s10051-025-01040-y)
+2) **Stripe order in quasicrystals** (https://doi.org/10.1140/epjb/s10051-025-01040-y)
    
    *European Physical Journal B: 98, 188*
    
