@@ -6,7 +6,7 @@ This repository contains C++ and Python codes developed during a two-year postdo
 
 The MC code supports both Heisenberg and Ising models. For the Heisenberg case, spin updates are performed using a heat-bath algorithm combined with microcanonical (overrelaxation) updates, enhancing sampling efficiency. For the Ising model, updates are carried out via the standard single-spin-flip Metropolis algorithm;
 
-Regarding the SMD implementation, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. Time evolution is computed using a fourth-order Runge-Kutta (RK4) method, supplemented by an energy-correction scheme to ensure numerical stability over long simulations (see the associated publications for further details and references);
+Regarding the SMD implementation, spin dynamics are numerically obtained by integrating the Heisenberg equations of motion in the classical limit, where they reduce to the LLG equations describing spin precession (without damping) in an effective local magnetic field. Time evolution is computed using the fourth-order Runge-Kutta (RK4) method, supplemented by an energy-correction scheme to ensure numerical stability over long simulations (see the associated publications for further details and references);
 
 Available periodic geometries include square, triangular, Lieb, hexagonal, and Kagome lattices. Other geometries must be configured manually within the code or loaded at runtime, as in the case of the octagonal Ammann-Beenker QC approximants provided (see the directory *QCrystal_Data*);
 
