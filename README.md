@@ -34,7 +34,7 @@ Follow the instructions in *Instructions.txt* and the Python script *Set_Params.
 
 ## Reseach outputs:
 
-1) **Disorder-induced damping of spin excitations in $\textbf{Cr}$-doped $\textbf{BaFe}_{2}\textbf{As}_2$** (https://doi.org/10.1103/rkjn-hf7z)
+1) **Disorder-induced damping of spin excitations in Cr-doped BaFe<sub>2</sub>As<sub>2</sub>** (https://doi.org/10.1103/rkjn-hf7z)
    
    *Physical Review Research: 8, L012028*
    
